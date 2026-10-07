@@ -1,0 +1,73 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+// 1
+template <typename T>
+void printElement(const T& element) {
+    std::cout << element << std::endl;
+}
+
+// 2
+template <typename T>
+void mySwap(T& a, T& b) {
+    T temp = a;
+    a = b;
+    b = temp;
+}
+
+// 3
+template <typename T>
+T sumArray(T* arr, size_t size) {
+    T sum{};
+    for (size_t i = 0; i < size; ++i) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+// 5
+template <typename T>
+int linearSearch(const std::vector<T>& vec, const T& element) {
+    for (size_t i = 0; i < vec.size(); ++i) {
+        if (vec[i] == element) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+int main() {
+    printElement(5);
+    printElement(3.14);
+    printElement(std::string("Hello"));
+
+    int a = 1, b = 2;
+    mySwap(a, b);
+
+    double c = 1.1, d = 2.2;
+    mySwap(c, d);
+
+    std::string e = "Hello", f = "World";
+    mySwap(e, f);
+
+    
+    int intArray[] = {1, 2, 3, 4, 5};
+    double doubleArray[] = {1.1, 2.2, 3.3};
+    std::string stringArray[] = {"Hello ", "World", "!"};
+
+    printElement(sumArray(intArray, 5));
+    printElement(sumArray(doubleArray, 3));
+    printElement(sumArray(stringArray, 3));
+
+    
+    std::vector<int> intVec = {1, 2, 3, 4, 5};
+    std::vector<double> doubleVec = {1.1, 2.2, 3.3};
+    std::vector<std::string> stringVec = {"apple", "banana", "cherry"};
+
+    printElement(linearSearch(intVec, 3));
+    printElement(linearSearch(doubleVec, 2.2));
+    printElement(linearSearch(stringVec, std::string("banana")));
+
+    return 0;
+}
