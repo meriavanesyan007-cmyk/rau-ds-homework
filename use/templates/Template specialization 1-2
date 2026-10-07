@@ -1,0 +1,54 @@
+#include <iostream>
+#include <cstring>
+
+template <typename T>
+void printValue(const T& value) {
+    std::cout << value;
+}
+
+
+template <>
+void printValue<bool>(const bool& value) {
+    std::cout << (value ? "true" : "false");
+}
+
+
+template <>
+void printValue<char*>(char* const& value) {
+    std::cout << "\"" << value << "\"";
+}
+
+template <typename T>
+bool isEqual(const T& a, const T& b) {
+    return a == b;
+}
+
+
+template <>
+bool isEqual<const char*>(const char* const& a, const char* const& b) {
+    return std::strcmp(a, b) == 0;
+}
+
+int main() {
+    printValue(10);
+    std::cout << std::endl;
+
+    printValue(3.14);
+    std::cout << std::endl;
+
+    printValue(true);
+    std::cout << std::endl;
+
+    char text[] = "Hello";
+    printValue(text);
+    std::cout << std::endl;
+
+    std::cout << isEqual(5, 5) << std::endl;
+
+    const char* str1 = "Hello";
+    const char* str2 = "Hello";
+
+    std::cout << isEqual(str1, str2) << std::endl;
+
+    return 0;
+}
