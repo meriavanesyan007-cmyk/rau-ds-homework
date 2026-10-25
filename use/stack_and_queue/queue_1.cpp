@@ -29,9 +29,9 @@ int main() {
         "Alice", "Bob", "Charlie", "David"
     };
 
-    assert(hotPotato(players, 0) == "Alice");
-    assert(hotPotato(players, 1) == "Charlie");
-    assert(hotPotato(players, 7) == "Alice");
+   assert(hotPotato(players, 0) == "David");
+   assert(hotPotato(players, 1) == "Alice");
+   assert(hotPotato(players, 7) == "Charlie");
 
     std::cout << "Queue 1 passed\n";
     return 0;
